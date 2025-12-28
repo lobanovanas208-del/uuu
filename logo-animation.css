@@ -1,0 +1,70 @@
+/* Анимация логотипа */
+.logo-animated {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    transition: all 0.5s ease;
+}
+
+/* Анимация плавающего эффекта */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(1deg);
+    }
+}
+
+/* Эффект при наведении */
+.logo-animated:hover .logo-img {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+}
+
+/* Свечение */
+.logo-animated::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(38, 208, 206, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* Адаптивность лого */
+@media (max-width: 768px) {
+    .logo-animated {
+        width: 60px;
+        height: 60px;
+    }
+}

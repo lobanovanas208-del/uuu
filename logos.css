@@ -1,0 +1,91 @@
+/* Стили для секции с логотипами */
+.logos-section {
+    padding: 60px 0;
+    background: white;
+}
+
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.logo-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 0.5s ease forwards;
+}
+
+.logo-item.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.logo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.logo-item img {
+    max-width: 100%;
+    max-height: 50px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Анимация появления с задержкой */
+.logo-item:nth-child(1) { animation-delay: 0.05s; }
+.logo-item:nth-child(2) { animation-delay: 0.1s; }
+.logo-item:nth-child(3) { animation-delay: 0.15s; }
+.logo-item:nth-child(4) { animation-delay: 0.2s; }
+.logo-item:nth-child(5) { animation-delay: 0.25s; }
+.logo-item:nth-child(6) { animation-delay: 0.3s; }
+.logo-item:nth-child(7) { animation-delay: 0.35s; }
+.logo-item:nth-child(8) { animation-delay: 0.4s; }
+.logo-item:nth-child(9) { animation-delay: 0.45s; }
+.logo-item:nth-child(10) { animation-delay: 0.5s; }
+.logo-item:nth-child(11) { animation-delay: 0.55s; }
+.logo-item:nth-child(12) { animation-delay: 0.6s; }
+
+@media (max-width: 768px) {
+    .logos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .logo-item {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
